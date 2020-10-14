@@ -40,14 +40,54 @@ function promptUser() {
     },
   ]);
 }
+
+  
+// and to create objects for each team member (using the correct classes as blueprints!)
 class Employee {
-    // method which prints all of the stats for a employee
-    constructor(name,id,email,role) {
-      this.name = name;
-      this.id = id;
-      this.email = email;
-      this.role = role;
+  // method which prints all of the stats for a employee
+  constructor(name,id,email,role) {
+    this.name = name;
+    this.id = id;
+    this.email = email;
+    this.role = role;
+  
+  if(role === "Manager"){
+
+  class Manager extends Employee {
+    constructor(name,id,email,role,mang) {
+      super(name,id,email,role);
+      this.manager = mang;
     }
+    show() {
+      return this.present() + 'manger card' + this.manger;
+    }
+  } 
+  } 
+  if (role === "Engineer") {
+    
+    class Engineer extends Employee {
+      constructor(name,id,email,role,engine) {
+        super(name,id,email,role);
+        this.engineer = engine;
+      }
+      show() {
+        return this.present() + 'engineer card' + this.engineer;
+      }
+    }  
+  }
+    if (role === "Intern") {
+    
+      class Intern extends Employee {
+        constructor(name,id,email,role,int) {
+          super(name,id,email,role);
+          this.intern = int;
+        }
+        show() {
+          return this.present() + 'engineer card' + this.intern;
+        }
+      }  
+  }
+  }
 getName(){
 
 }
@@ -61,7 +101,7 @@ getEmail(){
 }
 
 getRole(){
-    
+  
 }
 }
 // Create new employees using the "Employee" class...might have to push new role into arrray
@@ -71,12 +111,10 @@ new Employee("dean", 60, "email")
 ]
 
 module.exports = {
-    Employee,
-    employees
-  };
-  
-// and to create objects for each team member (using the correct classes as blueprints!)
-
+  Employee,
+  employees
+};
+//Class new Employee
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
@@ -89,10 +127,10 @@ function generateHTML(answers) {
     .then(function(answers) {
       const html = generateHTML(answers);
   
-      return writeFileAsync("home.html", html);
+      return writeFileAsync("team.html", html);
     })
     .then(function() {
-      console.log("Successfully wrote to home.html");
+      console.log("Successfully wrote to team.html");
     })
     .catch(function(err) {
       console.log(err);
