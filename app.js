@@ -1,161 +1,158 @@
-const Manager = require("./lib/manager");
-const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern");
-const inquirer = require("inquirer");
+const fs = require('fs');
+const inquirer = require('inquirer');
+const Manager = require('./lib/Manager')
+const Engineer = require('./lib/Engineer')
+const Intern = require('./lib/Intern')
 const path = require("path");
-const fs = require("fs");
-
-
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+
 const employees = [];
-// Write code to use inquirer to gather information about the development team members,
 
-//const writeFileAsync = util.promisify(fs.writeFile);
-
-function createEmployee() {
-   const employeeType = [
-    {
-        type: "list",
-        name: "role",
-        message: "Which type of employee would you like to add to your team?",
-            choices: ["Engineer","Intern","Manager"]
-        },
-      ]
-      inquirer.prompt(employeeType)
+function generatePerson() {
+    const personType = [
+        {
+            type: "list",
+            message: "Which type of employee would you like to add to your team?",
+            name: "type",
+            choices: ["Manager", "Engineer", "Intern"]
+        }
+    ]
+    inquirer.prompt(personType)
         .then(answers => {
-            if (answers.role === "Manager") {
+            if (answers.type === "Manager") {
                 createManager();
-            } else if (answers.role === "Engineer") {
+            } else if (answers.type === "Engineer") {
                 createEngineer();
             } else {
-                createIntern();
+              createIntern();
             }
         })
 };
-function createManager() {
-  const manager = [
-        {
-      type: "input",
-      name: "name",
-      message: "Enter manager name."
-    }, 
-    {
-      type: "input",
-      name: "email",
-      message: "Enter manager email."
-    },
-    {
-      type: "input",
-      name: "empID",
-      message: "What is your team member ID number?"
-    },
-    {
-      type: "input",
-      name: "office",
-      message: "List the office number."
-    },
-  ]
 
-  inquirer.prompt(manager)
-  .then(answers => {
-    const managerInput = new Manager(answers.name,answers.email,answers.empID,answers.office);
-    employess.push(managerInput);
-    console.log(`You have added ${answers.name}`);
-    addmember();
-  })
+function createManager() {
+    const manager = [
+        {
+            type: "input",
+            message: "Enter manager name.",
+            name: "name"
+        },
+        {
+            type: "input",
+            message: "Enter manager ID.",
+            name: "id"
+        },
+        {
+            type: "input",
+            message: "What is the manager's email?",
+            name: "email"
+        },
+        {
+            type: "input",
+            message: "Enter the office number of this manager.",
+            name: "office"
+        },
+    ]
+    inquirer.prompt(manager)
+        .then(answers => {
+            const managerInput = new Manager(answers.name, answers.id, answers.email, answers.office);
+            employees.push(managerInput);
+            console.log(`You have successfully added ${answers.name}!`);
+            addOn();
+        })
+
 }
 
 function createEngineer() {
-  const engineer =[
-       {
-         type: "input",
-         name: "name",
-         message: "Enter the engineer's name."
-       }, 
-       {
-         type: "input",
-         name: "email",
-         message: "Enter the engineer's email."
-       },
-       {
-         type: "input",
-         name: "empID",
-         message: "Enter the enginner's ID number?"
-       },
-       {
-         type: "input",
-         name: "github",
-         message: "Enter the engineer's github username."
-       }
-      ]
-      inquirer.prompt(engineer)
-      .then(answers => {
-        const engineerInput = new Engineer(answers.name,answers.email,answers.empID,answers.github);
-        employess.push(engineerInput);
-        console.log(`You have added ${answers.name}`);
-        addmember();
-      })
-    }
+    const engineer = [
+        {
+            type: "input",
+            message: "Enter the name of this engineer.",
+            name: "name"
+        },
+        {
+            type: "input",
+            message: "Enter the engineer's employee ID number.",
+            name: "id"
+        },
+        {
+            type: "input",
+            message: "Enter the engineer's email.",
+            name: "email"
+        },
+        {
+            type: "input",
+            message: "What is this engineer's github user name?",
+            name: "github"
+        },
+    ]
+    inquirer.prompt(engineer)
+        .then(answers => {
+            const engineerInput = new Engineer(answers.name, answers.id, answers.email, answers.github);
+            employees.push(engineerInput);
+            console.log(`You have added ${answers.name}!`);
+            addOn();
+        })
+}
 
-    function createIntern() {
-      const intern = [
-       {
-         type: "input",
-         name: "name",
-         message: ""
-       }, 
-       {
-         type: "input",
-         name: "email",
-         message: "Enter the email address."
-       },
-       {
-         type: "input",
-         name: "empID",
-         message: "Enter the intern ID number"
-       },
-       {
-         type: "input",
-         name: "school",
-         message: "Enter the name of the school that the intern attended."
-       }
-      ]
+function createIntern() {
+    const intern = [
+        {
+            type: "input",
+            message: "Enter the name of the intern.",
+            name: "name"
+        },
+        {
+            type: "input",
+            message: "Enter the intern's ID number.",
+            name: "id"
+        },
+        {
+            type: "input",
+            message: "Enter the intern's email address.",
+            name: "email"
+        },
+        {
+            type: "input",
+            message: "What school does this intern attend?",
+            name: "school"
+        },
+    ]
+    inquirer.prompt(intern)
+        .then(answers => {
+            const internInput = new Intern(answers.name, answers.id, answers.email, answers.school);
+            employees.push(internInput);
+            console.log(`You have successfully added ${answers.name}!`);
+            addOn();
+        })
+}
 
-      inquirer.prompt(intern)
-      .then(answers => {
-        const internInput = new Intern(answers.name,answers.email,answers.empID,answers.school);
-        employess.push(internInput);
-        console.log(`You have added ${answers.name}`);
-        addmember();
-      });
-    }
-    function addmember() {
-      const next = [
-          {
-              type: "list",
-              message: "Would you like to add another employee profile?",
-              name: "continue",
-              choices: ["Yes", "No"]
-          }
-      ]
-      inquirer.prompt(next)
-          .then(answers => {
-              if (answers.continue === "Yes") {
-                  createEmployee();
-              } else {
-                  createTeam();
-                  console.log("You have created your Team!")
-              }
-          })
-  };
-  
-  function createTeam(){
-      const htmlPage = render(employees)
-      fs.writeFileSync(outputPath, htmlPage);
-  }
- 
-  createEmployee();
+function addOn() {
+    const next = [
+        {
+            type: "list",
+            message: "Would you like to add another employee?",
+            name: "continue",
+            choices: ["Yes", "No"]
+        }
+    ]
+    inquirer.prompt(next)
+        .then(answers => {
+            if (answers.continue === "Yes") {
+                generatePerson();
+            } else {
+              createTeam();
+                console.log("You have created your Team!")
+            }
+        })
+};
+
+function createTeam(){
+    const htmlPage = render(employees)
+    fs.writeFileSync(outputPath, htmlPage);
+}
+
+generatePerson();
