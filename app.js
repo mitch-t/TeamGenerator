@@ -16,7 +16,7 @@ function generatePerson() {
     const personType = [
         {
             type: "list",
-            message: "Which type of employee would you like to add to your team?",
+            message: "Select the type of employee would you like to add to your team?",
             name: "type",
             choices: ["Manager", "Engineer", "Intern"]
         }
@@ -47,7 +47,7 @@ function createManager() {
         },
         {
             type: "input",
-            message: "What is the manager's email?",
+            message: "Enter the manager's email?",
             name: "email"
         },
         {
@@ -63,14 +63,13 @@ function createManager() {
             console.log(`You have successfully added ${answers.name}!`);
             addOn();
         })
-
 }
 
 function createEngineer() {
     const engineer = [
         {
             type: "input",
-            message: "Enter the name of this engineer.",
+            message: "Enter the name of the engineer.",
             name: "name"
         },
         {
@@ -85,7 +84,7 @@ function createEngineer() {
         },
         {
             type: "input",
-            message: "What is this engineer's github username?",
+            message: "Enter the engineer's github username?",
             name: "github"
         },
     ]
@@ -117,7 +116,7 @@ function createIntern() {
         },
         {
             type: "input",
-            message: "What school does this intern attend?",
+            message: "What school does the intern attend?",
             name: "school"
         },
     ]
@@ -134,7 +133,7 @@ function addOn() {
     const next = [
         {
             type: "list",
-            message: "Would you like to add another employee?",
+            message: "Would you like to add another team member?",
             name: "continue",
             choices: ["Yes", "No"]
         }
