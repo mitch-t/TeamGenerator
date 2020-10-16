@@ -78,7 +78,7 @@ function createManager() {
          message: "Enter engineer github name."
        }
       ]).then(answers => {
-        const engineer = new Engineer(answers.name,answers.email,answers.empID,);
+        const engineer = new Engineer(answers.name,answers.email,answers.empID,answers.github);
         employess.push(engineer);
         addmember();
       });
@@ -107,7 +107,7 @@ function createManager() {
          message: "Enter the name of the school that the intern attended."
        }
       ]).then(answers => {
-        const intern = new Intern(answers.name,answers.email,answers.empID,);
+        const intern = new Intern(answers.name,answers.email,answers.empID,answers.school);
         employess.push(intern);
         addmember();
       });
