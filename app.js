@@ -9,6 +9,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+// inquirer is used to gather information about the development team members,
 
 const employees = [];
 
@@ -16,11 +17,12 @@ function generatePerson() {
     const personType = [
         {
             type: "list",
-            message: "Select the type of employee would you like to add to your team?",
+            message: "Which type of employee would you like to add to your team?",
             name: "type",
             choices: ["Manager", "Engineer", "Intern"]
         }
     ]
+    //inquirer info is used to differeniate between employee roles based on user input
     inquirer.prompt(personType)
         .then(answers => {
             if (answers.type === "Manager") {
@@ -47,7 +49,7 @@ function createManager() {
         },
         {
             type: "input",
-            message: "Enter the manager's email?",
+            message: "What is the manager's email?",
             name: "email"
         },
         {
@@ -56,6 +58,8 @@ function createManager() {
             name: "office"
         },
     ]
+
+    //user input is used to create data on each employee(manager) and that data and employee are pushed into an array called employees
     inquirer.prompt(manager)
         .then(answers => {
             const managerInput = new Manager(answers.name, answers.id, answers.email, answers.office);
@@ -63,13 +67,14 @@ function createManager() {
             console.log(`You have successfully added ${answers.name}!`);
             addOn();
         })
+
 }
 
 function createEngineer() {
     const engineer = [
         {
             type: "input",
-            message: "Enter the name of the engineer.",
+            message: "Enter the name of this engineer.",
             name: "name"
         },
         {
@@ -84,10 +89,11 @@ function createEngineer() {
         },
         {
             type: "input",
-            message: "Enter the engineer's github username?",
+            message: "What is this engineer's github username?",
             name: "github"
         },
     ]
+     //user input is used to create data on each employee(enginneer) and that data and employee are pushed into an array called employees
     inquirer.prompt(engineer)
         .then(answers => {
             const engineerInput = new Engineer(answers.name, answers.id, answers.email, answers.github);
@@ -116,10 +122,11 @@ function createIntern() {
         },
         {
             type: "input",
-            message: "What school does the intern attend?",
+            message: "What school does this intern attend?",
             name: "school"
         },
     ]
+    //user input is used to create data on each employee(intern) and that data and employee are pushed into an array called employees
     inquirer.prompt(intern)
         .then(answers => {
             const internInput = new Intern(answers.name, answers.id, answers.email, answers.school);
@@ -128,17 +135,17 @@ function createIntern() {
             addOn();
         })
 }
-
+// this function enables the user to add new team members after data is collected for each new employee
 function addOn() {
-    const next = [
+    const add = [
         {
             type: "list",
-            message: "Would you like to add another team member?",
+            message: "Would you like to add another employee?",
             name: "continue",
             choices: ["Yes", "No"]
         }
     ]
-    inquirer.prompt(next)
+    inquirer.prompt(add)
         .then(answers => {
             if (answers.continue === "Yes") {
                 generatePerson();
@@ -149,6 +156,7 @@ function addOn() {
         })
 };
 
+//employee data is gathered and generated into a html page.
 function createTeam(){
     const htmlPage = render(employees)
     fs.writeFileSync(outputPath, htmlPage);
