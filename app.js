@@ -64,7 +64,7 @@ function createManager() {
   .then(answers => {
     const managerInput = new Manager(answers.name,answers.email,answers.empID,answers.office);
     employess.push(managerInput);
-    console.log(`You have added ${answers.name}!`);
+    console.log(`You have added ${answers.name}`);
     addmember();
   })
 }
@@ -106,7 +106,7 @@ function createEngineer() {
        {
          type: "input",
          name: "name",
-         message: "Enter the name of the intern."
+         message: ""
        }, 
        {
          type: "input",
@@ -116,7 +116,7 @@ function createEngineer() {
        {
          type: "input",
          name: "empID",
-         message: "Enter the intern ID number?"
+         message: "Enter the intern ID number"
        },
        {
          type: "input",
@@ -157,5 +157,5 @@ function createEngineer() {
       const htmlPage = render(employees)
       fs.writeFileSync(outputPath, htmlPage);
   }
-  
+ 
   createEmployee();
