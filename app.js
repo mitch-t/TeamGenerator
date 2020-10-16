@@ -52,7 +52,7 @@ function createManager() {
         },
         {
             type: "input",
-            message: "Enter the office number of this manager.",
+            message: "Enter the office number of the manager.",
             name: "office"
         },
     ]
@@ -85,7 +85,7 @@ function createEngineer() {
         },
         {
             type: "input",
-            message: "What is this engineer's github user name?",
+            message: "What is this engineer's github username?",
             name: "github"
         },
     ]
