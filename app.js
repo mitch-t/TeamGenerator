@@ -74,7 +74,7 @@ function createEngineer() {
     const engineer = [
         {
             type: "input",
-            message: "Enter the name of this engineer.",
+            message: "Enter the name of the engineer.",
             name: "name"
         },
         {
