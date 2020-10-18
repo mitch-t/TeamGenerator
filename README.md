@@ -6,6 +6,7 @@
 ## Table of Contents
 
 * [About](#about)
+* [Screenshot](#Screenshot)
 * [Installation](#installation)
 * [Usage](#usage)
 * [Tests](#tests)
