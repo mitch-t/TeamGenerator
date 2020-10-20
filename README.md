@@ -50,4 +50,4 @@ Github: https://github.com/mitch-t
 ## License
 <!--- If you're not sure which open license to use see https://choosealicense.com/--->
 
-This project uses the following license: [MIT](<link>).
+This project uses the following license: [MIT](https://github.com/mitch-t/TeamGenerator/blob/master/LICENSE).
