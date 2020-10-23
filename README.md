@@ -7,7 +7,7 @@
 
 * [About](#about)
 * [Screenshot](#Screenshot)
-* [video link](#video link)
+* [video](#video-link)
 * [Installation](#installation)
 * [Usage](#usage)
 * [Tests](#tests)
