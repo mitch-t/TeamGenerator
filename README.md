@@ -7,6 +7,7 @@
 
 * [About](#about)
 * [Screenshot](#Screenshot)
+* [video link](#video link)
 * [Installation](#installation)
 * [Usage](#usage)
 * [Tests](#tests)
@@ -19,6 +20,9 @@ Team Generator - This app always the user to generate a team profile for their o
 
 ## Screenshot
 ![Screenshot (83)](https://user-images.githubusercontent.com/66184450/96376648-15b42b00-1135-11eb-9b7b-4bf29bbaf9e5.png)
+
+## Video link
+https://drive.google.com/file/d/1gfq3CkWXjlyWlPhTyCrlKJrOGHARPWHs/view?usp=sharing
 
 ## Installing 
 To install Team Generator, follow these steps: Must have a windows/mac/android machine with the latest version of nodejs installed.
