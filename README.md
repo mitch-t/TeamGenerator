@@ -1,12 +1,13 @@
 # Team Generator
 
-<!--- These are examples. See https://shields.io for others or to customize this set of shields. You might want to include dependencies, project status and licence info here --->
 ![GitHub repo size](https://img.shields.io/github/repo-size/mitch-t/TeamGenerator)![APM](https://img.shields.io/apm/l/test?style=for-the-badge)
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
 * [About](#about)
+* [Screenshot](#Screenshot)
+* [video](#video-link)
 * [Installation](#installation)
 * [Usage](#usage)
 * [Tests](#tests)
@@ -16,6 +17,12 @@
 
 ## About 
 Team Generator - This app always the user to generate a team profile for their organization. The profile contains each team members contact information based on user input.
+
+## Screenshot
+![Screenshot (83)](https://user-images.githubusercontent.com/66184450/96376648-15b42b00-1135-11eb-9b7b-4bf29bbaf9e5.png)
+
+## Video link
+https://drive.google.com/file/d/1gfq3CkWXjlyWlPhTyCrlKJrOGHARPWHs/view?usp=sharing
 
 ## Installing 
 To install Team Generator, follow these steps: Must have a windows/mac/android machine with the latest version of nodejs installed.
@@ -47,4 +54,4 @@ Github: https://github.com/mitch-t
 ## License
 <!--- If you're not sure which open license to use see https://choosealicense.com/--->
 
-This project uses the following license: [MIT](<link>).
+This project uses the following license: [MIT](https://github.com/mitch-t/TeamGenerator/blob/master/LICENSE).
