@@ -126,7 +126,7 @@ function createIntern() {
             name: "school"
         },
     ]
-    //user input is used to create data on each employee(intern) and that data and employee are pushed into an array called employees
+//user input is used to create data on each employee(intern) and that data and employee are pushed into an array called employees
     inquirer.prompt(intern)
         .then(answers => {
             const internInput = new Intern(answers.name, answers.id, answers.email, answers.school);
